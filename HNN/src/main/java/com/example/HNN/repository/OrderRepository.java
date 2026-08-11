@@ -23,4 +23,7 @@ public interface OrderRepository extends JpaRepository<Orders, Long> {
             "GROUP BY o.team.teamNum " +
             "ORDER BY MAX(o.updatedAt) DESC")
     List<String> findWaitingTeamCodes(@Param("states") List<String> states, Pageable pageable);
+
+    // 특정 팀의 주문 목록 (접수 최신순)
+    List<Orders> findByTeam_TeamNumOrderByOrderedAtDesc(String teamNum);
 }
