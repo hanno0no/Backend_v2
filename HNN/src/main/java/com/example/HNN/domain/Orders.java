@@ -42,6 +42,23 @@ public class Orders {
 
     protected Orders() {}
 
+    public Orders(String fileName, Team team, Material material, State state) {
+        this.fileName = fileName;
+        this.team = team;
+        this.material = material;
+        this.state = state;
+        this.orderedAt = LocalDateTime.now();
+        this.hiddenFromDashboard = false;
+    }
+
+    public void updateFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileName() { return fileName; }
+    public Material getMaterial() { return material; }
+    public LocalDateTime getOrderedAt() { return orderedAt; }
+
     public Long getOrderId() { return orderId; }
     public Team getTeam() { return team; }
     public State getState() { return state; }

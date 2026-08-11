@@ -37,10 +37,10 @@ INSERT INTO team (team_num, phone) VALUES
   ('M31', 0),
   ('M36', 0);
 
-INSERT INTO material (material_num, material, is_active) VALUES
-  (1, 'mdf_3mm', 1),
-  (3, '아크릴_3mm', 1),
-  (7, '3d 프린팅', 1);
+INSERT INTO material (material_num, material, file_code, is_active) VALUES
+  (1, 'mdf_3mm', 'M', 1),
+  (3, '아크릴_3mm', 'A', 1),
+  (7, '3d 프린팅', NULL, 1);
 
 INSERT INTO event_info (
   event_id, name, start_time, end_time, is_open, description, created_at,
