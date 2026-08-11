@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: HNN
+  profiles:
+    include: local          # 로컬 전용 설정 파일 포함
+  jpa:
+    hibernate:
+      ddl-auto: create
+    defer-datasource-initialization: true
+    show-sql: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:seed.sql
+      encoding: UTF-8
