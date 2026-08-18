@@ -38,4 +38,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(Map.of("error", message));
     }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<Map<String, String>> handleInvalidCredentials(InvalidCredentialsException e) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("error", e.getMessage()));
+    }
+    // 아이디가 없는 경우와 비밀번호가 틀린 경우를 구분해서 알려주지 않는다.
+    // 구분해주면 공격자가 "이 아이디는 존재한다"는 정보를 얻을 수 있기 때문. 두 경우 모두 같은 메시지, 같은 401을 반환한다.
 }

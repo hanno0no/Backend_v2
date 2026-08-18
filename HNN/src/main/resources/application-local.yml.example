@@ -4,3 +4,7 @@ spring:
     username: root
     password: 비밀번호
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+jwt:
+  secret: 여기에_32바이트_이상_임의의_문자열_입력
+  expiration-ms: 86400000

@@ -24,8 +24,9 @@ INSERT INTO state (state_num, state) VALUES
   (5, 'failed'),
   (6, 'picked_up');
 
+-- 로컬 개발/테스트 전용 계정입니다. 실제 배포 시 반드시 새 계정으로 교체하세요.
 INSERT INTO admin_user (admin_id, username, password_hash, role, created_at) VALUES
-  (1, '한수민', '$2a$10$fuThpJpiJiizmOFSXFECFeS8wnzbXdDlOrLvOQixCYAHSgc9uQ4wa', 'admin', NOW());
+  (1, 'test_admin', '$2a$10$CWRHXsMGhb12Nuvudl8z6eUO4RKeHGP8qw7N9WQVUQUUQoUPSVaU.', 'admin', NOW());
 
 INSERT INTO team (team_num, phone) VALUES
   ('H07', 0),
