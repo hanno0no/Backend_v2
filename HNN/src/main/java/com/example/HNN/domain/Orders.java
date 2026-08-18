@@ -54,6 +54,7 @@ public class Orders {
     public void updateFileName(String fileName) {
         this.fileName = fileName;
     }
+    public AdminUser getAdminUser() { return adminUser; }
 
     public String getFileName() { return fileName; }
     public Material getMaterial() { return material; }

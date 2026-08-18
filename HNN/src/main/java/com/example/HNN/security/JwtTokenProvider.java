@@ -52,4 +52,12 @@ public class JwtTokenProvider {
             return false;
         }
     }
+
+    public io.jsonwebtoken.Claims parseClaims(String token) {
+        return Jwts.parser()
+                .verifyWith(key)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
+    }
 }

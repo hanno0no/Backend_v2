@@ -8,7 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface OrderRepository extends JpaRepository<Orders, Long> {
+public interface OrderRepository extends JpaRepository<Orders, Long>,
+        org.springframework.data.jpa.repository.JpaSpecificationExecutor<Orders> {
 
     // completedTeam: print_complete, hidden 제외, limit 적용
     @Query("SELECT o.team.teamNum FROM Orders o " +
