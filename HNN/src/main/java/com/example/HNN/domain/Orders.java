@@ -54,6 +54,17 @@ public class Orders {
     public void updateFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    public void updateAdmin(AdminUser adminUser) {
+        this.adminUser = adminUser;
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void updateState(State state) {
+        this.state = state;
+        this.updatedAt = LocalDateTime.now();
+    }
+
     public AdminUser getAdminUser() { return adminUser; }
 
     public String getFileName() { return fileName; }

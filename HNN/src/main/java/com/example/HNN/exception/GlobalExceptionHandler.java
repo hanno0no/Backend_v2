@@ -46,4 +46,24 @@ public class GlobalExceptionHandler {
     }
     // 아이디가 없는 경우와 비밀번호가 틀린 경우를 구분해서 알려주지 않는다.
     // 구분해주면 공격자가 "이 아이디는 존재한다"는 정보를 얻을 수 있기 때문. 두 경우 모두 같은 메시지, 같은 401을 반환한다.
+
+    @ExceptionHandler(OrderNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleOrderNotFound(OrderNotFoundException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error", e.getMessage()));
+    }
+
+    @ExceptionHandler(AdminNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleAdminNotFound(AdminNotFoundException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Map.of("error", e.getMessage()));
+    }
+    // 상태코드 판단 기준: orderId는 URL 경로에 있는 리소스 식별자라 없으면 404(리소스 자체가 없음),
+    // managerId는 요청 body 안의 값이라 유효하지 않으면 400(입력값 오류)으로 구분
+
+    @ExceptionHandler(InvalidStateException.class)
+    public ResponseEntity<Map<String, String>> handleInvalidState(InvalidStateException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(Map.of("error", e.getMessage()));
+    }
 }
