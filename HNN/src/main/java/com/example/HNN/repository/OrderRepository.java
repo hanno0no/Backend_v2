@@ -27,4 +27,14 @@ public interface OrderRepository extends JpaRepository<Orders, Long>,
 
     // 특정 팀의 주문 목록 (접수 최신순)
     List<Orders> findByTeam_TeamNumOrderByOrderedAtDesc(String teamNum);
+
+    @Query("SELECT o.state.state AS state, COUNT(o) AS count " +
+            "FROM Orders o " +
+            "GROUP BY o.state.state")
+    List<StateCountProjection> countByState();
+
+    interface StateCountProjection {
+        String getState();
+        Long getCount();
+    }
 }
