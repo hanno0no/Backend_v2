@@ -65,6 +65,12 @@ public class Orders {
         this.updatedAt = LocalDateTime.now();
     }
 
+    public void updateMaterial(Material material, String fileName) {
+        this.material = material;
+        this.fileName = fileName;
+        this.updatedAt = LocalDateTime.now();
+    }
+
     public AdminUser getAdminUser() { return adminUser; }
 
     public String getFileName() { return fileName; }
